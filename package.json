@@ -12,10 +12,13 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@storybook/react": "^8.5.8",
     "@types/xdate": "^0.8.35",
     "expo": "~52.0.35",
-    "expo-status-bar": "~2.0.1",
+    "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
+    "memoize-one": "^6.0.0",
+    "moment": "^2.30.1",
     "prop-types": "^15.8.1",
     "react": "18.3.1",
     "react-native": "0.76.7",

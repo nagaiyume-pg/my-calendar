@@ -8,18 +8,27 @@ importers:
 
   .:
     dependencies:
+      '@storybook/react':
+        specifier: ^8.5.8
+        version: 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))(typescript@5.7.3)
       '@types/xdate':
         specifier: ^0.8.35
         version: 0.8.35
       expo:
         specifier: ~52.0.35
         version: 52.0.35(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      expo-status-bar:
-        specifier: ~2.0.1
-        version: 2.0.1(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      hoist-non-react-statics:
+        specifier: ^3.3.2
+        version: 3.3.2
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      memoize-one:
+        specifier: ^6.0.0
+        version: 6.0.0
+      moment:
+        specifier: ^2.30.1
+        version: 2.30.1
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -65,7 +74,7 @@ importers:
         version: 8.5.5(prettier@3.5.1)(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))
       '@storybook/addon-ondevice-controls':
         specifier: 8.5.5
-        version: 8.5.5(b5733f1f7e35db299530fb1859983b92)
+        version: 8.5.5(4deca55fa5f68b5e5f8ae095ab279737)
       '@storybook/react-native':
         specifier: 8.5.5
         version: 8.5.5(f764e0ce00afdbccb5f77492b5e3cba3)
@@ -2292,12 +2301,6 @@ packages:
   expo-modules-core@2.2.2:
     resolution: {integrity: sha512-SgjK86UD89gKAscRK3bdpn6Ojfs/KU4GujtuFx1wm4JaBjmXH4aakWkItkPlAV2pjIiHJHWQbENL9xjbw/Qr/g==}
 
-  expo-status-bar@2.0.1:
-    resolution: {integrity: sha512-AkIPX7jWHRPp83UBZ1iXtVvyr0g+DgBVvIXTtlmPtmUsm8Vq9Bb5IGj86PW8osuFlgoTVAg7HI/+Ok7yEYwiRg==}
-    peerDependencies:
-      react: '*'
-      react-native: '*'
-
   expo@52.0.35:
     resolution: {integrity: sha512-VagwS6MJbU0Eky18i4amkkSy7FTi0v31B0W+qoEcsU4x5OurA381rxw4qGsQE+8pmSD/Gf3DGb8ygJw+HoAsXw==}
     hasBin: true
@@ -2984,6 +2987,9 @@ packages:
   memoize-one@5.2.1:
     resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
 
+  memoize-one@6.0.0:
+    resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
+
   memoizerific@1.11.3:
     resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
 
@@ -3131,6 +3137,9 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+
+  moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
 
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -5850,7 +5859,7 @@ snapshots:
       storybook: 8.5.8(prettier@2.8.8)
       uuid: 9.0.1
 
-  '@storybook/addon-controls@8.5.8(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/addon-controls@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       '@storybook/global': 5.0.0
       dequal: 2.0.3
@@ -5872,15 +5881,15 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@storybook/addon-ondevice-controls@8.5.5(b5733f1f7e35db299530fb1859983b92)':
+  '@storybook/addon-ondevice-controls@8.5.5(4deca55fa5f68b5e5f8ae095ab279737)':
     dependencies:
       '@gorhom/bottom-sheet': 5.1.1(@types/react@18.3.18)(react-native-gesture-handler@2.23.1(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-reanimated@3.16.7(@babel/core@7.26.9)(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@react-native-community/datetimepicker': 8.3.0(expo@52.0.35(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@react-native-community/slider': 4.5.5
-      '@storybook/addon-controls': 8.5.8(storybook@8.5.8(prettier@3.5.1))
+      '@storybook/addon-controls': 8.5.8(storybook@8.5.8(prettier@2.8.8))
       '@storybook/core': 8.5.8(prettier@3.5.1)
       '@storybook/react-native-theming': 8.5.5(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@storybook/react-native-ui': 8.5.5(18ae855296366abf7fd4f6c2d273fbbe)
+      '@storybook/react-native-ui': 8.5.5(25566dc4737ef6b2e9baecacd326b6af)
       deep-equal: 1.1.2
       prop-types: 15.8.1
       react: 18.3.1
@@ -5901,7 +5910,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@storybook/components@8.5.8(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/components@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       storybook: 8.5.8(prettier@2.8.8)
 
@@ -5955,15 +5964,15 @@ snapshots:
 
   '@storybook/global@5.0.0': {}
 
-  '@storybook/manager-api@8.5.8(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/manager-api@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       storybook: 8.5.8(prettier@2.8.8)
 
-  '@storybook/preview-api@8.5.8(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/preview-api@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       storybook: 8.5.8(prettier@2.8.8)
 
-  '@storybook/react-dom-shim@8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/react-dom-shim@8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -5975,11 +5984,11 @@ snapshots:
       react: 18.3.1
       react-native: 0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1)
 
-  '@storybook/react-native-ui@8.5.5(18ae855296366abf7fd4f6c2d273fbbe)':
+  '@storybook/react-native-ui@8.5.5(25566dc4737ef6b2e9baecacd326b6af)':
     dependencies:
       '@gorhom/bottom-sheet': 5.1.1(@types/react@18.3.18)(react-native-gesture-handler@2.23.1(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-reanimated@3.16.7(@babel/core@7.26.9)(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@storybook/core': 8.5.8(prettier@3.5.1)
-      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)
+      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))(typescript@5.7.3)
       '@storybook/react-native-theming': 8.5.5(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       fuse.js: 7.1.0
       memoizerific: 1.11.3
@@ -6005,7 +6014,7 @@ snapshots:
     dependencies:
       '@gorhom/bottom-sheet': 5.1.1(@types/react@18.3.18)(react-native-gesture-handler@2.23.1(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-reanimated@3.16.7(@babel/core@7.26.9)(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@storybook/core': 8.5.8(prettier@2.8.8)
-      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)
+      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))(typescript@5.7.3)
       '@storybook/react-native-theming': 8.5.5(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       fuse.js: 7.1.0
       memoizerific: 1.11.3
@@ -6033,7 +6042,7 @@ snapshots:
       '@storybook/core': 8.5.8(prettier@2.8.8)
       '@storybook/csf': 0.1.13
       '@storybook/global': 5.0.0
-      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)
+      '@storybook/react': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))(typescript@5.7.3)
       '@storybook/react-native-theming': 8.5.5(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@storybook/react-native-ui': 8.5.5(9fcc74c67d990dddcf1864df651db91a)
       commander: 8.3.0
@@ -6061,21 +6070,21 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@storybook/react@8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)':
+  '@storybook/react@8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))(typescript@5.7.3)':
     dependencies:
-      '@storybook/components': 8.5.8(storybook@8.5.8(prettier@3.5.1))
+      '@storybook/components': 8.5.8(storybook@8.5.8(prettier@2.8.8))
       '@storybook/global': 5.0.0
-      '@storybook/manager-api': 8.5.8(storybook@8.5.8(prettier@3.5.1))
-      '@storybook/preview-api': 8.5.8(storybook@8.5.8(prettier@3.5.1))
-      '@storybook/react-dom-shim': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@3.5.1))
-      '@storybook/theming': 8.5.8(storybook@8.5.8(prettier@3.5.1))
+      '@storybook/manager-api': 8.5.8(storybook@8.5.8(prettier@2.8.8))
+      '@storybook/preview-api': 8.5.8(storybook@8.5.8(prettier@2.8.8))
+      '@storybook/react-dom-shim': 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))
+      '@storybook/theming': 8.5.8(storybook@8.5.8(prettier@2.8.8))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.5.8(prettier@2.8.8)
     optionalDependencies:
       typescript: 5.7.3
 
-  '@storybook/theming@8.5.8(storybook@8.5.8(prettier@3.5.1))':
+  '@storybook/theming@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       storybook: 8.5.8(prettier@2.8.8)
 
@@ -7108,11 +7117,6 @@ snapshots:
     dependencies:
       invariant: 2.2.4
 
-  expo-status-bar@2.0.1(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-native: 0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1)
-
   expo@52.0.35(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.9
@@ -7835,6 +7839,8 @@ snapshots:
 
   memoize-one@5.2.1: {}
 
+  memoize-one@6.0.0: {}
+
   memoizerific@1.11.3:
     dependencies:
       map-or-similar: 1.5.0
@@ -8078,6 +8084,8 @@ snapshots:
       minimist: 1.2.8
 
   mkdirp@1.0.4: {}
+
+  moment@2.30.1: {}
 
   ms@2.0.0: {}
 
