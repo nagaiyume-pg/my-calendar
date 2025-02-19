@@ -10,11 +10,11 @@ const isTablet = (Platform as PlatformIOSStatic).isPad || (screenAspectRatio < 1
 const isAndroidRTL = isAndroid && isRTL;
 
 export default {
-    screenWidth,
-    screenHeight,
-    isRTL,
-    isAndroid,
-    isIOS,
-    isTablet,
-    isAndroidRTL
+  screenWidth,
+  screenHeight,
+  isRTL,
+  isAndroid,
+  isIOS,
+  isTablet,
+  isAndroidRTL
 };
