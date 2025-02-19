@@ -8,9 +8,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
-    "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start"
+    "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "@storybook/react": "^8.5.7",
     "expo": "~52.0.35",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",

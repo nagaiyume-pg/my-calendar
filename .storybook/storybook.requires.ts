@@ -21,16 +21,16 @@ const normalizedStories = [
   },
 ];
 
-declare global {
-  var view: ReturnType<typeof start>;
-  var STORIES: typeof normalizedStories;
-}
-
 const annotations = [
   require('./preview'),
   require('@storybook/react-native/preview'),
   require('@storybook/addon-ondevice-actions/preview'),
 ];
+
+declare global {
+  var view: ReturnType<typeof start>;
+  var STORIES: typeof normalizedStories;
+}
 
 global.STORIES = normalizedStories;
 
