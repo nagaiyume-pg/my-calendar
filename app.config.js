@@ -1,7 +1,7 @@
 export default ({ config }) => ({
     ...config,
-    name: "HelloWorld",
-    slug: "expo-template-blank-typescript",
+    name: "my-calendar",
+    slug: "my-calendar",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
