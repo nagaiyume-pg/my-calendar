@@ -19,6 +19,7 @@
     "prop-types": "^15.8.1",
     "react": "18.3.1",
     "react-native": "0.76.7",
+    "react-native-gesture-handler": "^2.23.1",
     "react-native-safe-area-context": "^5.2.0",
     "recyclerlistview": "^4.2.1",
     "xdate": "^0.8.3"
@@ -40,7 +41,6 @@
     "cross-env": "^7.0.3",
     "prettier": "^3.5.1",
     "react-dom": "18.3.1",
-    "react-native-gesture-handler": "2.23.1",
     "react-native-reanimated": "3.16.7",
     "react-native-svg": "15.11.1",
     "typescript": "^5.3.3"
