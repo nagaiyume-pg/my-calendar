@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
   return (
@@ -6,20 +6,20 @@ const App = () => {
       <Text>Open up App.tsx to start working on your app!</Text>
     </View>
   );
-}
+};
 
 let AppEntryPoint = App;
 
-if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true") {
-  AppEntryPoint = require("./.storybook").default;
+if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true') {
+  AppEntryPoint = require('./.storybook').default;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
