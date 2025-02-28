@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "expo": "~52.0.37",
@@ -16,8 +18,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@chromatic-com/storybook": "3.2.5",
+    "@storybook/addon-essentials": "8.6.2",
+    "@storybook/addon-interactions": "8.6.2",
+    "@storybook/addon-onboarding": "8.6.2",
+    "@storybook/blocks": "8.6.2",
+    "@storybook/react": "8.6.2",
+    "@storybook/react-native-web-vite": "8.6.2",
+    "@storybook/test": "8.6.2",
     "@types/react": "~18.3.12",
-    "typescript": "^5.3.3"
+    "react-native-web": "0.19.13",
+    "storybook": "8.6.2",
+    "typescript": "^5.3.3",
+    "vite": "6.2.0"
   },
   "private": true
 }
