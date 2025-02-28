@@ -21,3 +21,6 @@
 - testing library、jestの実装
 - babelの実装
 - easの実装
+
+その他
+- zennを書く
