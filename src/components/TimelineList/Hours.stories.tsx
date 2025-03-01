@@ -1,22 +1,21 @@
 import { ScrollView, View } from 'react-native';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Hours } from './Hours';
+import { Hours } from './TimelineList';
 
 const meta = {
     title: 'TimelineList/Hours',
     component: Hours,
-    argTypes: {
-        onPress: { action: 'pressed the button' },
-    },
     args: {
-        text: 'Hello world',
+        screenWidth: 375
     },
     decorators: [
         (Story) => (
-        <View style={{ padding: 16, alignItems: 'flex-start' }}>
-            <ScrollView>
-                <Story />
-            </ScrollView>
+        <View style={{ alignItems: 'center', backgroundColor: "#e5e7eb", flex: 1, justifyContent: "flex-start" }}>
+            <View style={{ height: 667, width: 375, backgroundColor: "white" }}>
+                <ScrollView>
+                    <Story />
+                </ScrollView>
+            </View>
         </View>
         ),
     ],
