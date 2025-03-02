@@ -10,13 +10,13 @@ const meta = {
     },
     decorators: [
         (Story) => (
-        <View style={{ alignItems: 'center', backgroundColor: "#e5e7eb", flex: 1, justifyContent: "flex-start" }}>
-            <View style={{ height: 667, width: 375, backgroundColor: "white" }}>
-                <ScrollView>
-                    <Story />
-                </ScrollView>
-            </View>
-        </View>
+            <ScrollView>
+                <View style={{ alignItems: 'center', backgroundColor: "#e5e7eb", flex: 1, justifyContent: "flex-start" }}>
+                    <View style={{ backgroundColor: "white", display: "flex", height: 2400, width: 375 }}>
+                        <Story />
+                    </View>
+                </View>
+            </ScrollView>
         ),
     ],
 } satisfies Meta<typeof Hours>;
