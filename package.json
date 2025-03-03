@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "storybook-generate": "sb-rn-get-stories"
+    "storybook-generate": "sb-rn-get-stories",
+    "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start"
   },
   "dependencies": {
     "expo": "~52.0.37",
@@ -24,12 +25,16 @@
     "@storybook/addon-ondevice-actions": "8.5.5",
     "@storybook/addon-ondevice-controls": "8.5.5",
     "@storybook/react-native": "8.5.5",
+    "@types/react": "~18.3.12",
     "babel-loader": "8.4.1",
+    "babel-plugin-react-docgen": "^4.2.1",
+    "cross-env": "^7.0.3",
     "react-dom": "18.3.1",
     "react-native-gesture-handler": "2.24.0",
     "react-native-reanimated": "3.17.1",
     "react-native-safe-area-context": "5.2.0",
-    "react-native-svg": "15.11.2"
+    "react-native-svg": "15.11.2",
+    "typescript": "^5.3.3"
   },
   "private": true,
   "pnpm": {
