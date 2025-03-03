@@ -8,6 +8,7 @@ import {
 import * as SplashScreen from 'expo-splash-screen';
 import { calcTimeOffset } from "@/utils";
 
+// スプラッシュスクリーンの自動非表示を防ぐ
 SplashScreen.preventAutoHideAsync();
 
 /**
@@ -17,10 +18,10 @@ SplashScreen.preventAutoHideAsync();
  * @interface HoursProps
  */
 interface HoursProps {
-    start: number;
-    end: number;
+    start: number;  // 開始時刻（デフォルトは0）
+    end: number;    // 終了時刻（デフォルトは24）
     screenWidth: number; // 画面の幅（レイアウト調整に使用）
-    hourHeight: number;
+    hourHeight: number; // 各時間の高さ（タイムライン表示のため）
 }
 
 /**
@@ -70,8 +71,7 @@ export const Hours = ({ start = 0, end = 24, screenWidth, hourHeight }: HoursPro
                         {time === end ? null : (
                             <Text
                                 key={`timeLabel${time}`}  // 時間ラベルのキー
-                                style={[styles.timeLabel, { top: hourHeight * index - 7.5, fontFamily: "NotoSansJP_400Regular" }]}
-                            >
+                                style={[styles.timeLabel, { top: hourHeight * index - 7.5, fontFamily: "NotoSansJP_400Regular" }]}>
                                 {timeText}
                             </Text>
                         )}
@@ -82,13 +82,12 @@ export const Hours = ({ start = 0, end = 24, screenWidth, hourHeight }: HoursPro
                         {time === end ? null : (
                             <View
                                 key={`lineHalf${time}`} // 各時間の半分の位置にラインを引くためのキー
-                                style={[styles.line, { top: hourHeight * (index + 0.5), width: screenWidth - 36, left: 36 }]}
-                            />
+                                style={[styles.line, { top: hourHeight * (index + 0.5), width: screenWidth - 36, left: 36 }]}/>
                         )}
                     </React.Fragment>
                 );
             })}
-            <View style={[styles.verticalLine, { left: 50 }]} />
+            <View style={[styles.verticalLine, { left: 50 }]} /> {/* 縦の線 */}
         </>
     );
 };
@@ -104,20 +103,22 @@ export const Hours = ({ start = 0, end = 24, screenWidth, hourHeight }: HoursPro
  */
 interface NowIndicatorProps {
     screenWidth: number;
+    hourHeight: number;
 }
 
-export const NowIndicator = React.memo(({ screenWidth }: NowIndicatorProps): JSX.Element => {
+export const NowIndicator = React.memo(({ screenWidth, hourHeight = 100 }: NowIndicatorProps): JSX.Element => {
+    // 現在時刻のオフセット位置を計算
+    const indicatorPosition = calcTimeOffset(hourHeight);
 
-    const indicatorPosition = calcTimeOffset(100);
-
+    // スタイルをメモ化して効率化
     const nowIndicatorStyle = useMemo(() => {
-        return [styles.nowIndicator, {top: indicatorPosition}];
+        return [styles.nowIndicator, { top: indicatorPosition }];
     }, [indicatorPosition]);
 
     return(
         <View style={nowIndicatorStyle}>
             <View style={[styles.nowIndicatorLine, { width: screenWidth - 50 }]}/>
-            <View style={styles.nowIndicatorKnob}/>
+            <View style={styles.nowIndicatorKnob}/> {/* 現在時刻インジケータのノブ */}
         </View>
     );
 });
@@ -138,7 +139,6 @@ interface TimelineProps {
 }
 
 export const Timeline = React.memo(({ screenWidth, height, hourHeight }: TimelineProps): JSX.Element => {
-
     return(
         <View style={[styles.timelineContainer, {height: height, width: screenWidth}]}>
             <ScrollView>
@@ -151,6 +151,7 @@ export const Timeline = React.memo(({ screenWidth, height, hourHeight }: Timelin
                     />
                     <NowIndicator
                         screenWidth={screenWidth}
+                        hourHeight={hourHeight}
                     />
                 </View>
             </ScrollView>
