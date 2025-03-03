@@ -1,11 +1,13 @@
-import React, { useMemo } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useCallback, useMemo } from "react";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import range from 'lodash/range';
 import {
     useFonts,
     NotoSansJP_400Regular
 } from '@expo-google-fonts/noto-sans-jp';
 import * as SplashScreen from 'expo-splash-screen';
+import XDate from "xdate";
+
 import { calcTimeOffset } from "@/utils";
 
 // スプラッシュスクリーンの自動非表示を防ぐ
@@ -106,7 +108,7 @@ interface NowIndicatorProps {
     hourHeight: number;
 }
 
-export const NowIndicator = React.memo(({ screenWidth, hourHeight = 100 }: NowIndicatorProps): JSX.Element => {
+export const NowIndicator = ({ screenWidth, hourHeight = 100 }: NowIndicatorProps): JSX.Element => {
     // 現在時刻のオフセット位置を計算
     const indicatorPosition = calcTimeOffset(hourHeight);
 
@@ -121,7 +123,72 @@ export const NowIndicator = React.memo(({ screenWidth, hourHeight = 100 }: NowIn
             <View style={styles.nowIndicatorKnob}/> {/* 現在時刻インジケータのノブ */}
         </View>
     );
-});
+};
+
+export interface Event {
+    id: string;
+    start: string;
+    end: string;
+    title: string;
+    summary?: string;
+    color: string;
+}
+
+export interface PackedEvent extends Event {
+    index: number;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+}
+
+export interface EventBlockProps {
+    index: number;
+    event: PackedEvent;
+    onPress: (eventIndex: number) => void;
+    renderEvent?: (event: PackedEvent) => JSX.Element;
+}
+
+export const EventBlock = ({ index, event, onPress, renderEvent }: EventBlockProps) => {
+    const EVENT_DEFAULT_COLOR = '#add8e6';
+    const eventStyle = useMemo(() => {
+        return {
+            left: event.left,
+            height: event.height,
+            width: event.width,
+            top: event.top,
+            backgroundColor: event.color ? event.color : EVENT_DEFAULT_COLOR
+        };
+    }, [event]);
+
+    const _onPress = useCallback(() => {
+        onPress(index);
+    }, [index, onPress]);
+
+    return (
+        <TouchableOpacity activeOpacity={0.9} onPress={_onPress} style={[styles.event, eventStyle]}>
+            {renderEvent ? (
+            renderEvent(event)
+            ) : (
+            <View>
+                <Text numberOfLines={1} style={styles.eventTitle}>
+                {event.title || 'Event'}
+                </Text>
+                {numberOfLines > 1 ? (
+                <Text numberOfLines={numberOfLines - 1} style={[styles.eventSummary]}>
+                    {event.summary || ' '}
+                </Text>
+                ) : null}
+                {numberOfLines > 2 ? (
+                <Text style={styles.eventTimes} numberOfLines={1}>
+                    {new XDate(event.start).toString(formatTime)} - {new XDate(event.end).toString(formatTime)}
+                </Text>
+                ) : null}
+            </View>
+            )}
+        </TouchableOpacity>
+    );
+}
 
 /**
  * タイムラインをスクロール可能なビューにラップするコンポーネント。
@@ -220,6 +287,38 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: -3,
         top: -3
+    },
+    event: {
+        opacity: 1,
+        paddingLeft: 4,
+        paddingTop: 5,
+        paddingBottom: 0,
+        backgroundColor: '#F0F4FF',
+        borderColor: '#DDE5FD',
+        borderWidth: 1,
+        position: 'absolute',
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        overflow: 'hidden',
+        minHeight: 25
+    },
+    eventTitle: {
+        color: "black",
+        fontWeight: '600',
+        minHeight: 15
+    },
+    eventSummary: {
+        color: "black",
+        fontSize: 12,
+        flexWrap: 'wrap'
+    },
+    eventTimes: {
+        marginTop: 3,
+        color: "red",
+        fontSize: 10,
+        fontWeight: 'bold',
+        flexWrap: 'wrap'
     },
     timeline: {
         backgroundColor: "white",
