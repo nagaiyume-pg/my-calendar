@@ -17,9 +17,7 @@
 - InfiniteList
 
 開発
-- storybookの実装
 - testing library、jestの実装
-- babelの実装
 - easの実装
 
 その他
