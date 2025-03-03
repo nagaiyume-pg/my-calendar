@@ -147,7 +147,6 @@ export const Timeline = React.memo(({ screenWidth, height }: TimelineProps): JSX
                         screenWidth={screenWidth}
                     />
                     <NowIndicator
-                        top={30}
                         screenWidth={screenWidth}
                     />
                 </View>
