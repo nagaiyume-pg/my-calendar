@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import range from 'lodash/range';
-import times from 'lodash/times';
 import {
     useFonts,
     NotoSansJP_400Regular
 } from '@expo-google-fonts/noto-sans-jp';
 import * as SplashScreen from 'expo-splash-screen';
+import { calcTimeOffset } from "@/utils";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -102,13 +102,19 @@ export const Hours = ({ start = 0, end = 24, screenWidth }: HoursProps): JSX.Ele
  * @returns {JSX.Element} 現在時刻を示すインジケータ
  */
 interface NowIndicatorProps {
-    top: number;   // インジケータの上側位置
     screenWidth: number;
 }
 
-export const NowIndicator = React.memo(({ top, screenWidth }: NowIndicatorProps): JSX.Element => {
+export const NowIndicator = React.memo(({ screenWidth }: NowIndicatorProps): JSX.Element => {
+
+    const indicatorPosition = calcTimeOffset(100);
+
+    const nowIndicatorStyle = useMemo(() => {
+        return [styles.nowIndicator, {top: indicatorPosition}];
+    }, [indicatorPosition]);
+
     return(
-        <View style={[styles.nowIndicator, { top: top }]}>
+        <View style={nowIndicatorStyle}>
             <View style={[styles.nowIndicatorLine, { width: screenWidth - 50 }]}/>
             <View style={styles.nowIndicatorKnob}/>
         </View>
