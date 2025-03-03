@@ -6,7 +6,6 @@ const meta = {
     title: 'TimelineList/NowIndicator',
     component: NowIndicator,
     args: {
-        top: 30,
         screenWidth: 375
     },
     decorators: [

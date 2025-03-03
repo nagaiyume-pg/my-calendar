@@ -20,6 +20,7 @@ interface HoursProps {
     start: number;
     end: number;
     screenWidth: number; // 画面の幅（レイアウト調整に使用）
+    hourHeight: number;
 }
 
 /**
@@ -32,7 +33,7 @@ interface HoursProps {
  * @param {HoursProps} props - `screenWidth` プロパティを持つコンポーネントのプロパティ。
  * @returns {JSX.Element} 時間のタイムラインを描画したコンポーネント
  */
-export const Hours = ({ start = 0, end = 24, screenWidth }: HoursProps): JSX.Element => {
+export const Hours = ({ start = 0, end = 24, screenWidth, hourHeight }: HoursProps): JSX.Element => {
     const [fontsLoaded] = useFonts({
         NotoSansJP_400Regular, // 日本語フォントを読み込む
     });
@@ -69,19 +70,19 @@ export const Hours = ({ start = 0, end = 24, screenWidth }: HoursProps): JSX.Ele
                         {time === end ? null : (
                             <Text
                                 key={`timeLabel${time}`}  // 時間ラベルのキー
-                                style={[styles.timeLabel, { top: 100 * index - 7.5, fontFamily: "NotoSansJP_400Regular" }]}
+                                style={[styles.timeLabel, { top: hourHeight * index - 7.5, fontFamily: "NotoSansJP_400Regular" }]}
                             >
                                 {timeText}
                             </Text>
                         )}
                         <View
                             key={`line${time}`} // 時間ごとのラインのキー
-                            style={[styles.line, { top: 100 * index, width: screenWidth - 36, left: 36 }]} // ラインの位置と幅
+                            style={[styles.line, { top: hourHeight * index, width: screenWidth - 36, left: 36 }]} // ラインの位置と幅
                         />
                         {time === end ? null : (
                             <View
                                 key={`lineHalf${time}`} // 各時間の半分の位置にラインを引くためのキー
-                                style={[styles.line, { top: 100 * (index + 0.5), width: screenWidth - 36, left: 36 }]}
+                                style={[styles.line, { top: hourHeight * (index + 0.5), width: screenWidth - 36, left: 36 }]}
                             />
                         )}
                     </React.Fragment>
@@ -133,9 +134,10 @@ export const NowIndicator = React.memo(({ screenWidth }: NowIndicatorProps): JSX
 interface TimelineProps {
     screenWidth: number;
     height: number;
+    hourHeight: number;
 }
 
-export const Timeline = React.memo(({ screenWidth, height }: TimelineProps): JSX.Element => {
+export const Timeline = React.memo(({ screenWidth, height, hourHeight }: TimelineProps): JSX.Element => {
 
     return(
         <View style={[styles.timelineContainer, {height: height, width: screenWidth}]}>
@@ -144,6 +146,7 @@ export const Timeline = React.memo(({ screenWidth, height }: TimelineProps): JSX
                     <Hours
                         start={0}
                         end={24}
+                        hourHeight={hourHeight}
                         screenWidth={screenWidth}
                     />
                     <NowIndicator

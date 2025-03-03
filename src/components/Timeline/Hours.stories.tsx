@@ -8,7 +8,8 @@ const meta = {
     args: {
         start: 0,
         end: 24,
-        width: 375,
+        hourHeight: 100,
+        screenWidth: 375,
     },
     decorators: [
         (Story) => (

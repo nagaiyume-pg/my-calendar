@@ -7,7 +7,8 @@ const meta = {
     component: Timeline,
     args: {
         screenWidth: 375,
-        height: 667
+        height: 667,
+        hourHeight: 100,
     },
     decorators: [
         (Story) => (
