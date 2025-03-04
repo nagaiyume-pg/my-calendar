@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5, // 左側の余白
         paddingBottom: 1, // 文字の高さを調整
         position: 'absolute', // 絶対配置
+        // TODO:文字の高さを調整
     },
     line: {
         height: 1, // ラインの高さ
