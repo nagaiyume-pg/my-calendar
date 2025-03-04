@@ -19,6 +19,7 @@ export interface NowIndicatorProps {
      *
      * @type {number}
      */
+    // TODO:leftを削除する
     left: number;
 
     /**
