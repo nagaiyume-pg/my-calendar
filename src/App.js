@@ -1,20 +1,20 @@
+import { SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import AgendaScreen from './screens/AgendaScreen.jsx';
+import AgendaInfiniteListScreen from './screens/AgendaInfiniteListScreen.jsx';
+import CalendarScreen from './screens/CalendarScreen';
+import NewCalendarScreen from './screens/NewCalendarScreen.jsx';
+import ExpandableCalendarScreen from './screens/ExpandableCalendarScreen.jsx';
+import NewCalendarListScreen from './screens/NewCalendarListScreen.jsx';
+import PlaygroundScreen from './screens/playgroundScreen.jsx';
+import TimelineCalendar from './screens/TimelineCalendar.jsx';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+      <StatusBar />
+      <TimelineCalendar />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
